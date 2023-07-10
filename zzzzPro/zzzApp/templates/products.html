@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load cart %}
+{% load custom_filter %}
+
+
+<br>
+<ul class="navmenu">
+    <li>
+        <div class="dropdown">
+          {% for category in categories %}
+          <a href="/?category={{category.id}}" class="dropdown-item" id="dd-item" href="#">{{category.name}}</a>
+          {% endfor %}
+        </div>
+    </li>
+</ul>
+<div id="container">
+    {% for product in products %}
+    <div>
+        <img src="{{product.image.url}}" />
+        <p class="product-name">{{product.name}}</p>
+        <p class="product-price">{{product.price|currency}}/-</p>
+    </div>
+    {% endfor%}
+</div>
+{%  endblock %}
+
+
+

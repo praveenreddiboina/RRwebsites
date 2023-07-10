@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load cart %}
+{% load custom_filter %}
+
+
+<section class="main-home">
+    <div class="main-text">
+        <h5>Let's See</h5>
+        <h1>All About <br> Electronics 2023</h1>
+        <p>Choice Your Best..</p>
+        <a href="#" class="main-btn">Shop Now <i class='bx bx-right-arrow-alt' ></i></a>
+    </div>
+    <div class="down-arrow">
+        <a href="#trending" class="down"><i class='bx bx-down-arrow-alt' ></i></a>
+    </div>
+</section>
+<section class="trending-product" id="trending">
+    <div class="center-text">
+        <h2>Our Trending <span>products</span></h2>
+    </div>
+    <div>
+        <ul class="navmenu">
+            <li>
+                <div class="ctg">
+                  {% for category in categories %}
+                  <a href="/?category={{category.id}}" class="dropdown-item" id="dd-item" href="#">{{category.name}}</a>
+                 {% endfor %}
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div id="container">
+        {% for product in products %}
+        <div>
+            <img src="{{product.image.url}}" />
+            <p>{{product.name}}</p>
+        </div>
+            {% endfor%}
+    </div>
+</section>   
+<section class="client-reviews">
+    <div class="reviews">
+        <h3>Client Reviews</h3>
+        <img src="image/team-1.jpg" alt="">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna <br>
+            aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis <br>
+            aute irure dolor in reprehenderit in voluptate velit esse cillum.</p>
+        <h2>Praveen Reddiboina</h2>
+        <p>CEO</p>
+    </div>
+</section>   
+<div>
+    <marquee direction="right">
+        <img src="https://cdn.bajajelectronics.com/product/BEProduction-16512.png">
+        <img src="https://cdn.bajajelectronics.com/product/BEProduction-16523.png">
+        <img src="https://cdn.bajajelectronics.com/product/BEProduction-16492.png">
+        <img src="https://cdn.bajajelectronics.com/product/BEProduction-16495.png">
+        <img src="https://cdn.bajajelectronics.com/product/BEProduction-16518.png">
+        <img src="https://cdn.bajajelectronics.com/product/BEProduction-16520.png">
+        <img src="https://cdn.bajajelectronics.com/product/BEProduction-16529.png">
+        <img src="https://cdn.bajajelectronics.com/product/BEProduction-4374.jpeg">
+        <img src="https://cdn.bajajelectronics.com/product/BEProduction-16521.png">
+    </marquee>
+</div>
+    <script>
+		const header = document.querySelector("header");
+        window.addEventListener ("scroll", function(){
+           header.classList.toggle ("sticky", this.window.scrollY > 0);
+        })
+
+        let menu = document.querySelector('#menu-icon');
+        let navmenu = document.querySelector('.navmenu');
+        menu.onclick = () => {
+            menu.classList.toggle('bx-x');
+            navmenu.classList.toggle('open');
+        }
+	</script>
+</html>
+
+{% endblock %}

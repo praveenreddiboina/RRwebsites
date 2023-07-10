@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+	<div class="container">
+		<div class="login">
+			<h1>Contact Us</h1>
+			<form method="post">
+				{% csrf_token %}
+				<div class="row">
+					<input type="email" name="frommail" required>
+					<span>Email</span>
+				</div>
+				<div class="row">
+					<input type="text" name="subject" required>
+					<span>Subject</span>
+				</div>
+				<div class="row">
+					<textarea rows="3" name="message" required></textarea>
+					<span>Message</span>
+				</div>
+				<div class="row">
+					<input type="submit" value="Send Message">
+				</div>
+			</form>
+		</div>
+	</div>    
+{%  endblock %}
+
+<!-- <form method="post">
+	{% csrf_token %}
+	<textarea name="frommail" placeholder="your emai id"></textarea>
+	<textarea name="subject" placeholder="subject"></textarea>
+	<textarea name="message" placeholder="Message..."></textarea>
+	<input type="submit" />
+</form>
+ -->
+
